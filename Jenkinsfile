@@ -20,11 +20,11 @@ steps {
                   -Dsonar.host.url=http://localhost:9000/ \
                   -Dsonar.login=admin \
                   -Dsonar.projectName=TP8_jenkins \
-                  //-Dsonar.projectVersion='1.0'"
+                  
                 }
              /* node {
               withSonarQubeEnv('My SonarQube Server') {
-                 sh 'mvn clean package sonar:sonar'
+                 sh 'mvn clean package sonar:sonar'//-Dsonar.projectVersion='1.0'"
               }*/
              
         
