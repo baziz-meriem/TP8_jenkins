@@ -11,7 +11,9 @@ steps {
                 trendsLimit: 10
   
 }
-      stage('Code Analysis') {
+    }
+ stage('Code Analysis') {
+   steps{
     def scannerHome = tool 'SonarQube'
       withSonarQubeEnv('SonarQube') {
       bat """C:\Users\pc\Desktop\S1-SIL\OGL\sonar-scanner-cli-4.6.2.2472-windows\sonar-scanner-4.6.2.2472-windows\bin \
@@ -26,8 +28,8 @@ steps {
         -D sonar.tests=TP8_jenkins/src/test \
         -D sonar.host.url=http://localhost:9000/"""
         }
-}
-}
-}
+}//steps
+}//stage
+}//stages
 
-}
+}//pipeline
