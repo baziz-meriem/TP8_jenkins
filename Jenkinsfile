@@ -14,7 +14,7 @@ steps {
     }
  stage('Code Analysis') {
    steps{
-                withSonarQubeEnv(installationName: 'SonarQubeScanner', credentialsId: 'SONARQUBE_TOKEN') {
+                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'SONARQUBE_TOKEN') {
                 bat "./gradle sonarqube \
                   -Dsonar.projectKey=TP8_jenkins \
                   -Dsonar.host.url=http://localhost:9000/ \
@@ -22,6 +22,10 @@ steps {
                   -Dsonar.projectName=TP8_jenkins \
                   -Dsonar.projectVersion=1.0"
                 }
+             /* node {
+              withSonarQubeEnv('My SonarQube Server') {
+                 sh 'mvn clean package sonar:sonar'
+              }*/
              
         
 }//steps
