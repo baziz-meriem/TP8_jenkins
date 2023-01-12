@@ -19,8 +19,7 @@ steps {
                   -Dsonar.projectKey=TP8_jenkins \
                   -Dsonar.host.url=http://localhost:9000/ \
                   -Dsonar.login=admin \
-                  -Dsonar.projectName=TP8_jenkins \
-                  -Dsonar.projectVersion='1.0'"
+                  -Dsonar.projectName=TP8_jenkins \"
                 }
              /* node {
               withSonarQubeEnv('My SonarQube Server') {
