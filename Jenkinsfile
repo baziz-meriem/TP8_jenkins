@@ -15,8 +15,8 @@ steps {
  stage('Code Analysis') {
    steps{
   
-     withSonarQubeEnv('sonar') { // Will pick the global server connection you have configured
-      bat './gradle sonarqube'
+     withSonarQubeEnv() { // Will pick the global server connection you have configured
+      bat './gradlew sonarqube'
   }
 
              
