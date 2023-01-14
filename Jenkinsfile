@@ -106,7 +106,7 @@ steps {
 
         success {
           script {
-            mail=" Deployement terminé avec succès "
+            mail=" Deployement termine avec succes "
           }
 
         }
