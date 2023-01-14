@@ -12,18 +12,19 @@ steps {
   
 }
     }
-    node{  
+    
  stage('Code Analysis') {
    steps{
- 
+     script{
        // requires SonarQube Scanner 2.8+
        def scannerHome = tool 'SonarQube Scanner 3.1';
        withSonarQubeEnv('sonar') {
             bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
          
        }
+     }
    }//steps
- }//node
+
 
 }//code analysis stage
 }//stages
