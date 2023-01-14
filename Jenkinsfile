@@ -10,13 +10,6 @@ pipeline {
 
         }
 
-        success {
-          script {
-            mail=" test termine avec succes "
-          }
-
-        }
-
       }
 steps {
    bat 'gradle test'
@@ -40,13 +33,6 @@ steps {
         failure {
           script {
             mail= " Code Analysis termine avec echec "
-          }
-
-        }
-
-        success {
-          script {
-            mail=" Code analysis termine avec succes "
           }
 
         }
@@ -75,13 +61,6 @@ steps {
 
         }
 
-        success {
-          script {
-            mail=" Build termine avec succes "
-          }
-
-        }
-
       }
       steps {
         bat 'gradle build'
@@ -99,14 +78,14 @@ steps {
                 post {
         failure {
           script {
-            mail= " Deployement terminé avec échec "
+            mail= " Deployement termine avec echec "
           }
 
         }
 
         success {
           script {
-            mail=" Deployement terminé avec succès "
+            mail=" Deployement termine avec succes "
           }
 
         }
