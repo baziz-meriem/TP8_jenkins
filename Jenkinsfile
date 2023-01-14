@@ -13,7 +13,7 @@ steps {
 }
     }
     
-    stage('Code Analysis') {
+    
      
         stage('Code Analysis') {
           steps {
@@ -25,7 +25,7 @@ steps {
           }
         }
    
-    }
+  
     
 }//stages
 
