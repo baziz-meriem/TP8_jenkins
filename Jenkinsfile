@@ -14,15 +14,15 @@ steps {
     }
  stage('Code Analysis') {
    steps{
-  
-     withSonarQubeEnv() { // Will pick the global server connection you have configured
-      bat './gradlew sonarqube'
-  }
+ 
+       // requires SonarQube Scanner 2.8+
+       def scannerHome = tool 'SONAR_RUNNER';
+       withSonarQubeEnv('SonarQube') {
+            bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
+         
+       }//steps
 
-             
-        
-}//steps
-}//stage
+}//code analysis stage
 }//stages
 
 }//pipeline
