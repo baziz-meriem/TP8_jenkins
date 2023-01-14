@@ -5,14 +5,14 @@ pipeline {
             post {
         failure {
           script {
-            mail= " test terminé avec échec "
+            mail= " test termine avec echec "
           }
 
         }
 
         success {
           script {
-            mail=" test terminé avec succès "
+            mail=" test termine avec succes "
           }
 
         }
@@ -28,26 +28,31 @@ steps {
   
 }
     }
-    
+            stage('Mail Notification') {
+      steps {
+        mail(subject: 'TPOGL Jenkins test phase notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
+      }
+    }
     
      
         stage('Code Analysis') {
                 post {
         failure {
           script {
-            mail= " Code Analysis terminé avec échec "
+            mail= " Code Analysis termine avec echec "
           }
 
         }
 
         success {
           script {
-            mail=" Code analysis terminé avec succès "
+            mail=" Code analysis termine avec succes "
           }
 
         }
 
       }
+          
           steps {
             withSonarQubeEnv('sonar') {
               bat 'gradle sonarQube'
@@ -56,18 +61,23 @@ steps {
             waitForQualityGate true
           }
         }
+            stage('Mail Notification') {
+      steps {
+        mail(subject: 'TPOGL Jenkins analysis phase notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
+      }
+    }
        stage('Build') {
                post {
         failure {
           script {
-            mail= " Build terminé avec échec "
+            mail= " Build termine avec echec "
           }
 
         }
 
         success {
           script {
-            mail=" Build terminé avec succès "
+            mail=" Build termine avec succes "
           }
 
         }
@@ -80,7 +90,11 @@ steps {
         archiveArtifacts 'build/docs/javadoc/**'
       }
     }
-    
+            stage('Mail Notification') {
+      steps {
+        mail(subject: 'TPOGL Jenkins build phase notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
+      }
+    }
         stage('Deployment') {
                 post {
         failure {
