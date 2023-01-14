@@ -123,7 +123,7 @@ steps {
     }
       stage('Slack Notification') {
       steps {
-        slackSend(baseUrl: 'https://hooks.slack.com/services', channel: '#jenkins', notifyCommitters: true, sendAsText: true, username: 'BAZIZ Meriem', message: 'Slack vous indique que le processus est termine avec succes. ', replyBroadcast: true,token: 'fZ277hMOuSOeYlGmZnMjfGsK')
+        slackSend(baseUrl: 'https://hooks.slack.com/services', channel: '#tp', notifyCommitters: true, sendAsText: true, username: 'BAZIZ Meriem', message: 'Slack vous indique que le processus est termine avec succes. ', replyBroadcast: true,token: 'EcjOuvQG6IvjXuLXkn7ePt3X')
       }
     }
     
