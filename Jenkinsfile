@@ -13,20 +13,20 @@ steps {
 }
     }
     
- stage('Code Analysis') {
-   steps{
-     script{
-       // requires SonarQube Scanner 2.8+
-       def scannerHome = tool 'SonarQube Scanner 3.1';
-       withSonarQubeEnv('sonar') {
-            bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
-         
-       }
-     }
-   }//steps
+    stage('Code Analysis') {
+     
+        stage('Code Analysis') {
+          steps {
+            withSonarQubeEnv('sonar') {
+              bat 'gradle sonarQube'
+            }
 
-
-}//code analysis stage
+            waitForQualityGate true
+          }
+        }
+   
+    }
+    
 }//stages
 
 }//pipeline
