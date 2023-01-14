@@ -19,7 +19,7 @@ steps {
        // requires SonarQube Scanner 2.8+
        def scannerHome = tool 'SonarQube Scanner 3.1';
        withSonarQubeEnv('sonar') {
-            bat "\"${scannerHome}\\bin\\sonar-scanner.bat\ -Dsonar.projectKey=TP8_jenkins""
+            bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
          
        }
      }
