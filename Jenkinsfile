@@ -16,7 +16,7 @@ steps {
    steps{
  
        // requires SonarQube Scanner 2.8+
-       var scannerHome = tool 'SonarQube Scanner 3.1';
+       def scannerHome = tool 'SonarQube Scanner 3.1';
        withSonarQubeEnv('sonar') {
             bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
          
