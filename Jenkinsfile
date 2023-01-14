@@ -28,7 +28,7 @@ steps {
   
 }
     }
-            stage('Mail Notification') {
+            stage('test Mail Notification') {
       steps {
         mail(subject: 'TPOGL Jenkins test phase notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
       }
@@ -61,7 +61,7 @@ steps {
             waitForQualityGate true
           }
         }
-            stage('Mail Notification') {
+            stage('analysis Mail Notification') {
       steps {
         mail(subject: 'TPOGL Jenkins analysis phase notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
       }
@@ -90,7 +90,7 @@ steps {
         archiveArtifacts 'build/docs/javadoc/**'
       }
     }
-            stage('Mail Notification') {
+            stage(' build Mail Notification') {
       steps {
         mail(subject: 'TPOGL Jenkins build phase notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
       }
@@ -116,7 +116,7 @@ steps {
         bat 'gradle publish'
       }
     }
-        stage('Mail Notification') {
+        stage(' deploy Mail Notification') {
       steps {
         mail(subject: 'TPOGL Jenkins notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
       }
