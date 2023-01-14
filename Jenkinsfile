@@ -32,6 +32,12 @@ steps {
         archiveArtifacts 'build/docs/javadoc/**'
       }
     }
+    
+        stage('Deployment') {
+      steps {
+        bat 'gradle publish'
+      }
+    }
   
     
 }//stages
