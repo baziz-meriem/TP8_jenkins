@@ -20,10 +20,11 @@ steps {
        withSonarQubeEnv('SonarQube') {
             bat "\"${scannerHome}\\bin\\sonar-scanner.bat\""
          
-       }//steps
+       }
+   }//steps
 
 }//code analysis stage
 }//stages
 
 }//pipeline
-}
+
