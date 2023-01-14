@@ -123,7 +123,7 @@ steps {
     }
       stage('Slack Notification') {
       steps {
-        slackSend(baseUrl: 'https://hooks.slack.com/services', channel: '#tp',message: 'Slack vous indique que le processus est termine avec succes. ',token: 'EcjOuvQG6IvjXuLXkn7ePt3X')
+        slackSend(baseUrl: 'https://hooks.slack.com/services', workspace: 'tpjenkinsdiscussion',message: 'Slack vous indique que le processus est termine avec succes. ',token: 'EcjOuvQG6IvjXuLXkn7ePt3X')
       }
     }
    
