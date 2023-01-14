@@ -5,14 +5,7 @@ pipeline {
             post {
         failure {
           script {
-            mail= " test terminé avec échec "
-          }
-
-        }
-
-        success {
-          script {
-            mail=" test terminé avec succès "
+            mail= " Test phase failed "
           }
 
         }
@@ -28,21 +21,18 @@ steps {
   
 }
     }
-    
+            stage('Mail Notification') {
+      steps {
+        mail(subject: 'TPOGL Jenkins notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
+      }
+    }
     
      
         stage('Code Analysis') {
                 post {
         failure {
           script {
-            mail= " Code Analysis terminé avec échec "
-          }
-
-        }
-
-        success {
-          script {
-            mail=" Code analysis terminé avec succès "
+            mail= " Code Analysis phase failed "
           }
 
         }
@@ -56,18 +46,16 @@ steps {
             waitForQualityGate true
           }
         }
+            stage('Mail Notification') {
+      steps {
+        mail(subject: 'TPOGL Jenkins notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
+      }
+    }
        stage('Build') {
                post {
         failure {
           script {
-            mail= " Build terminé avec échec "
-          }
-
-        }
-
-        success {
-          script {
-            mail=" Build terminé avec succès "
+            mail= " Build phase failed "
           }
 
         }
@@ -80,19 +68,24 @@ steps {
         archiveArtifacts 'build/docs/javadoc/**'
       }
     }
+            stage('Mail Notification') {
+      steps {
+        mail(subject: 'TPOGL Jenkins notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
+      }
+    }
     
         stage('Deployment') {
                 post {
         failure {
           script {
-            mail= " Deployement terminé avec échec "
+            mail= " Deployement phase failed "
           }
 
         }
 
         success {
           script {
-            mail=" Deployement terminé avec succès "
+            mail=" Deployement phase ended successfully "
           }
 
         }
