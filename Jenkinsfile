@@ -104,7 +104,7 @@ steps {
     }
         stage('Mail Notification') {
       steps {
-        mail(subject: 'TP JenkinsOGL notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
+        mail(subject: 'TPOGL Jenkins notification', body: mail, cc: 'jm_baziz@esi.dz' ,bcc:'jm_baziz@esi.dz')
       }
     }
   
