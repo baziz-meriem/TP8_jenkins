@@ -110,6 +110,8 @@ steps {
   
     
 }//stages
-
+  environment {
+    mail = ''
+  }
 }//pipeline
 
