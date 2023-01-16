@@ -115,7 +115,7 @@ public class MatrixMathematics {
 	 * @throws NoSquareException
 	 */
 		public static Matrix inverse(Matrix matrix) throws NoSquareException {
-			var d= determinant(matrix)
+			int d= determinant(matrix);
 		if(d==0){return null;} else
 		return (transpose(cofactor(matrix)).multiplyByConstant(1.0/determinant(matrix)));
 	}
