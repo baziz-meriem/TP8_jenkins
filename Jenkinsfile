@@ -55,7 +55,7 @@ steps {
           
           steps {
             withSonarQubeEnv('sonar') {
-              bat 'gradle sonarQube'
+              bat 'gradle sonar'
             }
 
             waitForQualityGate true
