@@ -1,4 +1,4 @@
-pipeline {
+ipeline {
   agent any
   stages {
     stage ('test') { // la phase test
@@ -6,6 +6,13 @@ pipeline {
         failure {
           script {
             mail= " test termine avec echec "
+          }
+
+        }
+
+        success {
+          script {
+            mail=" test termine avec succes "
           }
 
         }
