@@ -126,7 +126,9 @@ steps {
         slackSend(message: 'Slack vous indique que le processus est termine avec succes. ')
       } 
         stage('Signal'){
+          steps{
           notifyEvents message: 'Signal vous indique que le processus est termine avec succes', token: 'fO811p3_BI6km3eLTE-FdNtE9EY6Sh_F'
+        }
         }
     }
    
