@@ -10,13 +10,6 @@ pipeline {
 
         }
 
-        success {
-          script {
-            mail=" test termine avec succes "
-          }
-
-        }
-
       }
 steps {
    bat 'gradle test'
